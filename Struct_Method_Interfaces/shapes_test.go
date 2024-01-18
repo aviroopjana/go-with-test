@@ -2,22 +2,24 @@ package main
 
 import "testing"
 
-func TestPerimeter(t *testing.T) {
-	rectangle := Rectangle{20.0, 20.0}
-	got := Perimeter(rectangle)
-	expected := 80.0
-
-	if got != expected {
-		t.Errorf("got %f expected %f", got, expected)
-	}
-}
-
 func TestArea(t *testing.T) {
-	rectangle := Rectangle{20.0, 20.0}
-	got := Area(rectangle)
-	expected := 400.0
+	t.Run("Rectangle", func(t *testing.T) {
+		rectangle := Rectangle{20, 20}
+		got := rectangle.Area()
+		expected := 400.0
 
-	if got != expected {
-		t.Errorf("got %f expected %f", got, expected)
-	}
+		if got != expected {
+			t.Errorf("got %g expected %g", got, expected)
+		}
+	})
+
+	t.Run("Circle", func(t *testing.T) {
+		circle := Circle{10}
+		got := circle.Area()
+		expected := 314.1592653589793
+
+		if got != expected {
+			t.Errorf("got %g expected %g", got, expected)
+		}
+	})
 }
