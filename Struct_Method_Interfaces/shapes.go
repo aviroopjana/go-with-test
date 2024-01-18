@@ -1,9 +1,14 @@
 package main
 
-func Perimeter(length float64, breadth float64) float64 {
-	return 2 * (length + breadth)
+type Rectangle struct {
+	length  float64
+	breadth float64
 }
 
-func Area(length float64, breadth float64) float64 {
-	return length * breadth
+func Perimeter(rectangle Rectangle) float64 {
+	return 2 * (rectangle.length + rectangle.breadth)
+}
+
+func Area(rectangle Rectangle) float64 {
+	return rectangle.length * rectangle.breadth
 }
